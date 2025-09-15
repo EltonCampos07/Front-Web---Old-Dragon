@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Resumo do Personagem</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='resumo_personagem.css') }}"
+    />
+    <script src="{{ url_for('static', filename='salvar_personagem.js') }}"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>FICHA FINAL DO PERSONAGEM</h2>
+      <div class="resumo-flex">
+        <div class="resumo-info">
+          <p><strong>Modo:</strong> {{ modo }}</p>
+          <p><strong>Raça:</strong> {{ raca }}</p>
+          <p><strong>Classe:</strong> {{ classe }}</p>
+        </div>
+        <ul>
+          <li class="atributo-row">
+            <span class="attr-label"
+              ><img
+                class="attr-img"
+                src="{{ url_for('static', filename='images/massa-muscular.png') }}"
+                alt="Força"
+              />Força</span
+            >
+            <span class="attr-value">{{ atributos[0] }}</span>
+          </li>
+          <li class="atributo-row">
+            <span class="attr-label"
+              ><img
+                class="attr-img"
+                src="{{ url_for('static', filename='images/conselho.png') }}"
+                alt="Destreza"
+              />Destreza</span
+            >
+            <span class="attr-value">{{ atributos[1] }}</span>
+          </li>
+          <li class="atributo-row">
+            <span class="attr-label"
+              ><img
+                class="attr-img"
+                src="{{ url_for('static', filename='images/vigor.png') }}"
+                alt="Constituição"
+              />Constituição</span
+            >
+            <span class="attr-value">{{ atributos[2] }}</span>
+          </li>
+          <li class="atributo-row">
+            <span class="attr-label"
+              ><img
+                class="attr-img"
+                src="{{ url_for('static', filename='images/inteligencia-artificial.png') }}"
+                alt="Inteligência"
+              />Inteligência</span
+            >
+            <span class="attr-value">{{ atributos[3] }}</span>
+          </li>
+          <li class="atributo-row">
+            <span class="attr-label"
+              ><img
+                class="attr-img"
+                src="{{ url_for('static', filename='images/sabedoria.png') }}"
+                alt="Sabedoria"
+              />Sabedoria</span
+            >
+            <span class="attr-value">{{ atributos[4] }}</span>
+          </li>
+          <li class="atributo-row">
+            <span class="attr-label"
+              ><img
+                class="attr-img"
+                src="{{ url_for('static', filename='images/carisma.png') }}"
+                alt="Carisma"
+              />Carisma</span
+            >
+            <span class="attr-value">{{ atributos[5] }}</span>
+          </li>
+        </ul>
+      </div>
+      <!-- Campos ocultos para envio via JS -->
+      <input type="hidden" id="raca" value="{{ raca }}" />
+      <input type="hidden" id="classe" value="{{ classe }}" />
+      <input type="hidden" id="atributo0" value="{{ atributos[0] }}" />
+      <input type="hidden" id="atributo1" value="{{ atributos[1] }}" />
+      <input type="hidden" id="atributo2" value="{{ atributos[2] }}" />
+      <input type="hidden" id="atributo3" value="{{ atributos[3] }}" />
+      <input type="hidden" id="atributo4" value="{{ atributos[4] }}" />
+      <input type="hidden" id="atributo5" value="{{ atributos[5] }}" />
+      <button type="button" class="btn-option" id="btn-salvar">
+        Salvar Personagem
+      </button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Criação do personagem</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Você escolheu o modo {{ modo }}</h3>
+      <div class="main-flex">
+        <div class="atributos-box">
+          <div class="section-title">Atributos do personagem</div>
+          <ul>
+            <li class="atributo-row">
+              <span class="attr-label"
+                ><img
+                  class="attr-img"
+                  src="{{ url_for('static', filename='images/massa-muscular.png') }}"
+                  alt="Força"
+                />Força</span
+              ><span class="attr-value">{{ atributos[0] }}</span>
+            </li>
+            <li class="atributo-row">
+              <span class="attr-label"
+                ><img
+                  class="attr-img"
+                  src="{{ url_for('static', filename='images/conselho.png') }}"
+                  alt="Destreza"
+                />Destreza</span
+              ><span class="attr-value">{{ atributos[1] }}</span>
+            </li>
+            <li class="atributo-row">
+              <span class="attr-label"
+                ><img
+                  class="attr-img"
+                  src="{{ url_for('static', filename='images/vigor.png') }}"
+                  alt="Constituição"
+                />Constituição</span
+              ><span class="attr-value">{{ atributos[2] }}</span>
+            </li>
+            <li class="atributo-row">
+              <span class="attr-label"
+                ><img
+                  class="attr-img"
+                  src="{{ url_for('static', filename='images/inteligencia-artificial.png') }}"
+                  alt="Inteligência"
+                />Inteligência</span
+              ><span class="attr-value">{{ atributos[3] }}</span>
+            </li>
+            <li class="atributo-row">
+              <span class="attr-label"
+                ><img
+                  class="attr-img"
+                  src="{{ url_for('static', filename='images/sabedoria.png') }}"
+                  alt="Sabedoria"
+                />Sabedoria</span
+              ><span class="attr-value">{{ atributos[4] }}</span>
+            </li>
+            <li class="atributo-row">
+              <span class="attr-label"
+                ><img
+                  class="attr-img"
+                  src="{{ url_for('static', filename='images/carisma.png') }}"
+                  alt="Carisma"
+                />Carisma</span
+              ><span class="attr-value">{{ atributos[5] }}</span>
+            </li>
+          </ul>
+        </div>
+        <form
+          method="POST"
+          action="{{ url_for('finalizar_personagem') }}"
+          class="choices-box"
+          id="form-escolha"
+        >
+          <div class="choice-block">
+            <span class="choice-label">Escolha a raça:</span>
+            <div class="btn-group raca">
+              <button
+                type="button"
+                class="btn-option raca-humano"
+                value="Humano"
+              >
+                Humano
+              </button>
+              <button type="button" class="btn-option raca-anao" value="Anao">
+                Anão
+              </button>
+              <button type="button" class="btn-option raca-elfo" value="Elfo">
+                Elfo
+              </button>
+            </div>
+            <input type="hidden" name="raca" id="input-raca" required />
+          </div>
+          <div class="choice-block">
+            <span class="choice-label">Escolha a classe:</span>
+            <div class="btn-group classe">
+              <button
+                type="button"
+                class="btn-option classe-guerreiro"
+                value="Guerreiro"
+              >
+                Guerreiro
+              </button>
+              <button type="button" class="btn-option classe-mago" value="Mago">
+                Mago
+              </button>
+              <button
+                type="button"
+                class="btn-option classe-ladrao"
+                value="Ladrao"
+              >
+                Ladrão
+              </button>
+            </div>
+            <input type="hidden" name="classe" id="input-classe" required />
+          </div>
+          {% for i in range(6) %}
+          <input
+            type="hidden"
+            name="atributo{{i}}"
+            value="{{ atributos[i] }}"
+          />
+          {% endfor %}
+          <input type="hidden" name="modo" value="{{ modo }}" />
+          <button type="submit" class="btn-diagonal">Continuar</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

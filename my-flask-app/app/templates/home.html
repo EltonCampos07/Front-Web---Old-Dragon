@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Escolha o Modo</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background: #f8fafc;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+      button {
+        width: 220px;
+        height: 60px;
+        font-size: 1.3rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.1s;
+      }
+      button[name="modo"][value="classico"] {
+        background: #e0f7fa;
+        color: #00796b;
+      }
+      button[name="modo"][value="heroico"] {
+        background: #fff3e0;
+        color: #e65100;
+      }
+      button[name="modo"][value="aventureiro"] {
+        background: #f3e5f5;
+        color: #6a1b9a;
+      }
+      button:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Escolha o Modo de Jogo</h1>
+    <form action="/modo" method="post">
+      <button type="submit" name="modo" value="classico">Clássico</button>
+      <button type="submit" name="modo" value="heroico">Heroico</button>
+      <button type="submit" name="modo" value="aventureiro">Aventureiro</button>
+    </form>
+  </body>
+</html>
