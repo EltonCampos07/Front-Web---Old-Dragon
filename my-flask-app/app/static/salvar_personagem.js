@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ],
     };
 
-    // Salvar dados no localStorage usando função utilitária
+    // Salvar dados no localStorage
     const salvouLocal = salvarPersonagemLocal(data);
     
     if (!salvouLocal) {
